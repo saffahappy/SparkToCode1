@@ -163,8 +163,8 @@ using System.Runtime.InteropServices;
 //Console.WriteLine("the bill is "+bill);
 //Console.WriteLine("your discount is "+ dis);
 //Console.WriteLine("you final bill is "+bill);
-
-//task9
+////////////////////////////////////////////////////////////////
+//task9:Day name finder system:
 //Console.WriteLine("enter a number: ");
 //int day=int.Parse(Console.ReadLine());
 

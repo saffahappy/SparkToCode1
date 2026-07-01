@@ -195,9 +195,9 @@ using System.Runtime.InteropServices;
 //        Console.WriteLine("invalid ");
 //        break;
 //}
+///////////////////////////////////////////////////////////////////
 
-
-//task10:
+//task10:Mini Calculator system program
 //Console.Write("enter your first number:");
 //double num1=double.Parse(Console.ReadLine());
 

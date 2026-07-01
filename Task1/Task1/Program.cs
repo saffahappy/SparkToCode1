@@ -116,7 +116,7 @@ using System.Runtime.InteropServices;
 //{
 //    Console.WriteLine("weather is hot ");
 //}
-//task 7
+[//task 7:movie ticket pricing 
 //Console.WriteLine("enter your age: ");
 //int age=int.Parse(Console.ReadLine());
 //if (age>=0 && age<=12)
@@ -125,7 +125,7 @@ using System.Runtime.InteropServices;
 //    Console.WriteLine("price of ticket is 2 OMR ");
 
 //}
-//else if (age>=13 && age<=59)
+//else if (age>=13] && age<=59)
 //{
 //    Console.WriteLine("category is adult ");
 //    Console.WriteLine("price of ticket is 5 OMR ");

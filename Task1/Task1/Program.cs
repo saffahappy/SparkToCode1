@@ -366,8 +366,8 @@ using System.Runtime.InteropServices;
 //    Console.WriteLine("the sides dont form a traingle");
 
 //}
-
-//task14
+///////////////////////////////////////////////////////
+//task14:online store checkout 
 //Console.Write("Enter the code: ");
 //int code = int.Parse(Console.ReadLine());
 

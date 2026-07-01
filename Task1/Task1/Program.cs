@@ -12,12 +12,11 @@ using System.Runtime.InteropServices;
 //Console.WriteLine("im  " + Height+ " cm");
 //Console.WriteLine(" Im student : " + isStudent);
 ///////////////////////////////////////////////////////////////////////////////////////////
-//Task2:
+//Task2:calculating space of rectengle
 //Console.WriteLine("Enter lenght: ");
 //int length = int.Parse(Console.ReadLine());
 //Console.WriteLine("Enter width: ");
 //int width = int.Parse(Console.ReadLine());
-
 //int area = length * width;
 //int perimeter = 2 * (length * width);
 //Console.WriteLine();
@@ -25,6 +24,7 @@ using System.Runtime.InteropServices;
 //Console.WriteLine("the Area is : "+area +"cm");
 //Console.WriteLine("the perimeter is:" +perimeter);
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 //task3:
 //Console.Write("Enter a num: ");
 //int num = int.Parse(Console.ReadLine());

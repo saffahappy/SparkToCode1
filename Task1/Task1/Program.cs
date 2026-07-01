@@ -286,8 +286,8 @@ using System.Runtime.InteropServices;
 
 //}
 
-
-//task12
+///////////////////////////////////////////////////////
+//task12:Shipping cost calculator
 //        Console.Write("Enter your code: ");
 //        char region = Convert.ToChar(Console.ReadLine().ToUpper());
 //        Console.Write("Enter your package weight: ");

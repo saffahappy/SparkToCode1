@@ -92,8 +92,8 @@ using System.Runtime.InteropServices;
 //    default:
 //        Console.WriteLine("invalid");
 //        break;
-
-//task6:
+/////////////////////////////////////////////////////////////////////////////
+//task6:Tempreture converter to fehernite
 
 //Console.WriteLine("enter temp: ");
 //float cel = float.Parse(Console.ReadLine());

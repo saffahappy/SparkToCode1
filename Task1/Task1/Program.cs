@@ -135,8 +135,8 @@ using System.Runtime.InteropServices;
 //    Console.WriteLine("category is senior ");
 //    Console.WriteLine("price of ticke is 3 OMR ");
 //}
-
-//task8
+////////////////////////////////////////////////////////////////////////
+//task8:Restaurant bill with discount 
 //Console.WriteLine("enter the amount of bill:");
 //float bill =float.Parse(Console.ReadLine());
 //Console.Write("are a loyal member?:");

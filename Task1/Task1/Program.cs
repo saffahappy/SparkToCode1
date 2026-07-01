@@ -116,7 +116,7 @@ using System.Runtime.InteropServices;
 //{
 //    Console.WriteLine("weather is hot ");
 //}
-[//task 7:movie ticket pricing 
+//task 7:movie ticket pricing 
 //Console.WriteLine("enter your age: ");
 //int age=int.Parse(Console.ReadLine());
 //if (age>=0 && age<=12)
@@ -411,7 +411,7 @@ using System.Runtime.InteropServices;
 //        default:
 //            Console.WriteLine("invalid code");
 //            return;
-    
+
 //    }
 
 //double total = priceunit * quanity;
@@ -432,7 +432,82 @@ using System.Runtime.InteropServices;
 //Console.WriteLine("the tax is "+tax);
 //Console.WriteLine("the total is "+finaltotal);
 
-//task 15
+////task 15:University admission decision
+//Console.Write("Enter a program type: ");
+//char program = char.Parse(Console.ReadLine());
+//Console.Write("Enter your gpa:");
+//double gpa = double.Parse(Console.ReadLine());
+//Console.Write("Enter your exam score: ");
+//int score = int.Parse(Console.ReadLine());
+//Console.Write("Do you have an achievement:");
+//string ans = Console.ReadLine();
+//bool accomplishemnt;
+//if (ans == "yes")
+//{
+//    accomplishemnt = true;
+//}
+
+//else
+//{
+//    accomplishemnt= false;
+//}
+
+//switch(program)
+//{
+//    case 's':
+//        Console.WriteLine("science");
+//        if(gpa>=3 &&score>=75)
+//        {
+//            Console.WriteLine("admitted");
+//        }
+
+//        else if (accomplishemnt)
+//        {
+//            Console.WriteLine("condtionally admitted");
+
+//        }
+
+//        else
+//        {
+//            Console.WriteLine("not admitted");
+//        }
+//        break;
+
+//    case 'a':
+//        Console.WriteLine("Art");
+//        if(gpa>=2.5 && score>=60)
+//        {
+//            Console.WriteLine("the student is admitted");
+
+//        }
+
+//        else if(accomplishemnt)
+//        {
+//            Console.WriteLine("the student is conditionally admitted");
+//        }
+
+//        else
+//        {
+//            Console.WriteLine("the student is not admitted");
+//        }
+//        break;
+
+//    default:
+//        Console.WriteLine("invalid program");
+//        break;
+            
+
+
+
+
+
+//}
+
+
+
+
+
+
 
 
 

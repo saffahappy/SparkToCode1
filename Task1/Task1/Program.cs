@@ -37,7 +37,7 @@ using System.Runtime.InteropServices;
 //    Console.WriteLine("the number " + num + " is odd number");
 //}
 /////////////////////////////////////////////////////////////////////////////////////////////////
-//task 4:
+//task 4:voting eligiility 
 //Console.Write("please enter your age:");
 //int age=int.Parse(Console.ReadLine());
 //Console.Write("do you have your ID? :");

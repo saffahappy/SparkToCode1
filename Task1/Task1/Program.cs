@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 //Console.WriteLine("the perimeter is:" +perimeter);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-//task3:
+//task3:finding even number
 //Console.Write("Enter a num: ");
 //int num = int.Parse(Console.ReadLine());
 //if (num % 2==0)
@@ -36,7 +36,7 @@ using System.Runtime.InteropServices;
 //{
 //    Console.WriteLine("the number " + num + " is odd number");
 //}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////
 //task 4:
 //Console.Write("please enter your age:");
 //int age=int.Parse(Console.ReadLine());

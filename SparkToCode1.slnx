@@ -1,3 +1,8 @@
 <Solution>
   <Project Path="CSharp Session1/CSharp Session1.csproj" />
+  <Project Path="Task 5/Task 5.csproj" />
+  <Project Path="Task1/Task1/Task1.csproj" />
+  <Project Path="task2/Task2solution/Task2solution.csproj" />
+  <Project Path="Task3/Task3-solution/Task3-solution.csproj" />
+  <Project Path="task4/Task4-solution/Task4-solution.csproj" />
 </Solution>

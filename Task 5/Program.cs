@@ -1,5 +1,5 @@
 ﻿////Q1 fixed grade array
-//using System;
+
 
 //internal class Program
 //{
@@ -44,14 +44,13 @@
 
 //        foreach (string task in tasks)
 //        {
-//            Console.WriteLine("- " + task);
+//            Console.WriteLine(task);
 //        }
 //    }
 //}
 
 ////Q3:history stack
-//using System;
-//using System.Collections.Generic;
+
 
 //internal class Program
 //{
@@ -79,8 +78,7 @@
 //}
 
 ////Q4:CUSTOMER SERVICE LINE 
-//using System;
-//using System.Collections.Generic;
+
 
 //internal class Program
 //{
@@ -112,7 +110,6 @@
 //}
 
 ////Q5:grade range 
-//using System;
 
 //internal class Program
 //{
@@ -143,8 +140,7 @@
 //}
 
 ////Q6:shopping list
-//using System;
-//using System.Collections.Generic;
+
 
 //internal class Program
 //{
@@ -187,8 +183,7 @@
 //}
 
 ////Q7:scoare poduim task
-//using System;
-//using System.Collections.Generic;
+
 
 //internal class Program
 //{
@@ -300,61 +295,61 @@
 //        return grades.Find(x => x < 60);
 //    }
 //}
-//Q10:print manager
+////Q10:print manager
 
-internal class Program
-{
-    static void Main(string[] args)
-    {
-        Queue<string> jobs = new Queue<string>();
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Queue<string> jobs = new Queue<string>();
 
-        while (true)
-        {
-            Console.Write("enter  job: ");
-            string job = Console.ReadLine();
+//        while (true)
+//        {
+//            Console.Write("enter  job: ");
+//            string job = Console.ReadLine();
 
-            if (job.ToLower() == "done")
-            {
-                break;
-            }
+//            if (job.ToLower() == "done")
+//            {
+//                break;
+//            }
 
-            jobs.Enqueue(job);
-        }
+//            jobs.Enqueue(job);
+//        }
 
-        Console.WriteLine("print queue:");
+//        Console.WriteLine("print queue:");
 
-        foreach (string item in jobs)
-        {
-            Console.WriteLine(item);
-        }
+//        foreach (string item in jobs)
+//        {
+//            Console.WriteLine(item);
+//        }
 
-        Console.Write("enter job name : ");
-        string cancelJob = Console.ReadLine();
+//        Console.Write("enter job name : ");
+//        string cancelJob = Console.ReadLine();
 
-        jobs = RemoveJob(jobs, cancelJob);
+//        jobs = RemoveJob(jobs, cancelJob);
 
-        Console.WriteLine("queue :");
+//        Console.WriteLine("queue :");
 
-        foreach (string item in jobs)
-        {
-            Console.WriteLine(item);
-        }
-    }
+//        foreach (string item in jobs)
+//        {
+//            Console.WriteLine(item);
+//        }
+//    }
 
-    static Queue<string> RemoveJob(Queue<string> jobs, string cancelJob)
-    {
-        Queue<string> newQueue = new Queue<string>();
+//    static Queue<string> RemoveJob(Queue<string> jobs, string cancelJob)
+//    {
+//        Queue<string> newQueue = new Queue<string>();
 
-        while (jobs.Count > 0)
-        {
-            string currentJob = jobs.Dequeue();
+//        while (jobs.Count > 0)
+//        {
+//            string currentJob = jobs.Dequeue();
 
-            if (currentJob != cancelJob)
-            {
-                newQueue.Enqueue(currentJob);
-            }
-        }
+//            if (currentJob != cancelJob)
+//            {
+//                newQueue.Enqueue(currentJob);
+//            }
+//        }
 
-        return newQueue;
-    }
-}
+//        return newQueue;
+//    }
+//}

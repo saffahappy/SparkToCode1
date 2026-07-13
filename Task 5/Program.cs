@@ -48,3 +48,33 @@
 //        }
 //    }
 //}
+
+////Q3:history stack
+//using System;
+//using System.Collections.Generic;
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Stack<string> history = new Stack<string>();
+
+//        for (int i = 0; i < 3; i++)
+//        {
+//            Console.Write("Enter website URL: ");
+//            string website = Console.ReadLine();
+
+//            history.Push(website);
+//        }
+
+//        Console.WriteLine();
+
+//        string removedPage = history.Pop();
+
+//        Console.WriteLine("You went  Back.");
+//        Console.WriteLine(" page: " + removedPage);
+
+//        Console.WriteLine(" page: " + history.Peek());
+//    }
+//}
+

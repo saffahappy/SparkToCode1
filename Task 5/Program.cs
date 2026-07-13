@@ -141,3 +141,47 @@
 //        Console.WriteLine("Average : " + average);
 //    }
 //}
+
+//Q6:shopping list
+using System;
+using System.Collections.Generic;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        List<string> shoppingList = new List<string>();
+
+        while (true)
+        {
+            Console.Write("enter an item: ");
+            string item = Console.ReadLine();
+
+            if (item.ToLower() == "done")
+            {
+                break;
+            }
+
+            shoppingList.Add(item);
+        }
+
+        Console.WriteLine("\nShopping List:");
+
+        foreach (string item in shoppingList)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.Write("enter an item : ");
+        string removeItem = Console.ReadLine();
+
+        shoppingList.Remove(removeItem);
+
+        Console.WriteLine("shopping List:");
+
+        foreach (string item in shoppingList)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}

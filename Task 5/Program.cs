@@ -214,7 +214,93 @@
 //    }
 //}
 
-//Q8:reverse last action:
+////Q8:reverse last action:
+
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Stack<string> actions = new Stack<string>();
+
+//        while (true)
+//        {
+//            Console.Write("enter  action : ");
+//            string action = Console.ReadLine();
+
+//            if (action.ToLower() == "stop")
+//            {
+//                break;
+//            }
+
+//            actions.Push(action);
+//        }
+
+//        Console.WriteLine("Undo 1: " + actions.Pop());
+//        Console.WriteLine("Undo 2: " + actions.Pop());
+
+//        Console.WriteLine("remaining action:");
+
+//        foreach (string action in actions)
+//        {
+//            Console.WriteLine(action);
+//        }
+//    }
+//}
+
+////Q9:grade analyzer
+
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        List<int> grades = new List<int>();
+
+//        Console.Write("How many grades do you want to enter? ");
+//        int number = Convert.ToInt32(Console.ReadLine());
+
+//        for (int i = 0; i < number; i++)
+//        {
+//            Console.Write("Enter grade " + (i + 1) + ": ");
+//            int grade = Convert.ToInt32(Console.ReadLine());
+
+//            grades.Add(grade);
+//        }
+
+//        double average = CalculateAverage(grades);
+//        int failingGrade = FindFirstFailing(grades);
+
+//        Console.WriteLine("\nAverage = " + average);
+
+//        if (failingGrade == 0)
+//        {
+//            Console.WriteLine("There are no failing grades.");
+//        }
+//        else
+//        {
+//            Console.WriteLine("First failing grade = " + failingGrade);
+//        }
+//    }
+
+//    static double CalculateAverage(List<int> grades)
+//    {
+//        int sum = 0;
+
+//        for (int i = 0; i < grades.Count; i++)
+//        {
+//            sum += grades[i];
+//        }
+
+//        return (double)sum / grades.Count;
+//    }
+
+//    static int FindFirstFailing(List<int> grades)
+//    {
+//        return grades.Find(x => x < 60);
+//    }
+//}
+//Q10:
 using System;
 using System.Collections.Generic;
 
@@ -222,29 +308,55 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        Stack<string> actions = new Stack<string>();
+        Queue<string> jobs = new Queue<string>();
 
         while (true)
         {
-            Console.Write("enter  action : ");
-            string action = Console.ReadLine();
+            Console.Write("enter  job: ");
+            string job = Console.ReadLine();
 
-            if (action.ToLower() == "stop")
+            if (job.ToLower() == "done")
             {
                 break;
             }
 
-            actions.Push(action);
+            jobs.Enqueue(job);
         }
 
-        Console.WriteLine("Undo 1: " + actions.Pop());
-        Console.WriteLine("Undo 2: " + actions.Pop());
+        Console.WriteLine("print queue:");
 
-        Console.WriteLine("remaining action:");
-
-        foreach (string action in actions)
+        foreach (string item in jobs)
         {
-            Console.WriteLine(action);
+            Console.WriteLine(item);
         }
+
+        Console.Write("enter job name : ");
+        string cancelJob = Console.ReadLine();
+
+        jobs = RemoveJob(jobs, cancelJob);
+
+        Console.WriteLine("queue :");
+
+        foreach (string item in jobs)
+        {
+            Console.WriteLine(item);
+        }
+    }
+
+    static Queue<string> RemoveJob(Queue<string> jobs, string cancelJob)
+    {
+        Queue<string> newQueue = new Queue<string>();
+
+        while (jobs.Count > 0)
+        {
+            string currentJob = jobs.Dequeue();
+
+            if (currentJob != cancelJob)
+            {
+                newQueue.Enqueue(currentJob);
+            }
+        }
+
+        return newQueue;
     }
 }

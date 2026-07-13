@@ -78,3 +78,35 @@
 //    }
 //}
 
+//Q4:CUSTOMER SERVICE LINE 
+using System;
+using System.Collections.Generic;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Queue<string> customers = new Queue<string>();
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.Write("enter  name: ");
+            string name = Console.ReadLine();
+
+            customers.Enqueue(name);
+        }
+
+        Console.WriteLine();
+
+        string servedCustomer = customers.Dequeue();
+
+        Console.WriteLine("customer : " + servedCustomer);
+
+        Console.WriteLine("remaining customers:");
+
+        foreach (string customer in customers)
+        {
+            Console.WriteLine(customer);
+        }
+    }
+}

@@ -300,9 +300,7 @@
 //        return grades.Find(x => x < 60);
 //    }
 //}
-//Q10:
-using System;
-using System.Collections.Generic;
+//Q10:print manager
 
 internal class Program
 {

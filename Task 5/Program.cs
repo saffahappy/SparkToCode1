@@ -186,7 +186,35 @@
 //    }
 //}
 
-//Q7:scoare poduim task
+////Q7:scoare poduim task
+//using System;
+//using System.Collections.Generic;
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        List<int> scores = new List<int>();
+
+//        for (int i = 0; i < 5; i++)
+//        {
+//            Console.Write("enter your score " + (i + 1) + ": ");
+//            int score = Convert.ToInt32(Console.ReadLine());
+
+//            scores.Add(score);
+//        }
+
+//        scores.Sort();
+//        scores.Reverse();
+
+//        Console.WriteLine("the top  Scores");
+//        Console.WriteLine("first Place: " + scores[0]);
+//        Console.WriteLine("seond  Place: " + scores[1]);
+//        Console.WriteLine("third Place: " + scores[2]);
+//    }
+//}
+
+//Q8:reverse last action:
 using System;
 using System.Collections.Generic;
 
@@ -194,22 +222,29 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        List<int> scores = new List<int>();
+        Stack<string> actions = new Stack<string>();
 
-        for (int i = 0; i < 5; i++)
+        while (true)
         {
-            Console.Write("enter your score " + (i + 1) + ": ");
-            int score = Convert.ToInt32(Console.ReadLine());
+            Console.Write("enter  action : ");
+            string action = Console.ReadLine();
 
-            scores.Add(score);
+            if (action.ToLower() == "stop")
+            {
+                break;
+            }
+
+            actions.Push(action);
         }
 
-        scores.Sort();
-        scores.Reverse();
+        Console.WriteLine("Undo 1: " + actions.Pop());
+        Console.WriteLine("Undo 2: " + actions.Pop());
 
-        Console.WriteLine("the top  Scores");
-        Console.WriteLine("first Place: " + scores[0]);
-        Console.WriteLine("seond  Place: " + scores[1]);
-        Console.WriteLine("third Place: " + scores[2]);
+        Console.WriteLine("remaining action:");
+
+        foreach (string action in actions)
+        {
+            Console.WriteLine(action);
+        }
     }
 }

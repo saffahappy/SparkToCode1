@@ -78,35 +78,66 @@
 //    }
 //}
 
-//Q4:CUSTOMER SERVICE LINE 
-using System;
-using System.Collections.Generic;
+////Q4:CUSTOMER SERVICE LINE 
+//using System;
+//using System.Collections.Generic;
 
-internal class Program
-{
-    static void Main(string[] args)
-    {
-        Queue<string> customers = new Queue<string>();
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        Queue<string> customers = new Queue<string>();
 
-        for (int i = 0; i < 3; i++)
-        {
-            Console.Write("enter  name: ");
-            string name = Console.ReadLine();
+//        for (int i = 0; i < 3; i++)
+//        {
+//            Console.Write("enter  name: ");
+//            string name = Console.ReadLine();
 
-            customers.Enqueue(name);
-        }
+//            customers.Enqueue(name);
+//        }
 
-        Console.WriteLine();
+//        Console.WriteLine();
 
-        string servedCustomer = customers.Dequeue();
+//        string servedCustomer = customers.Dequeue();
 
-        Console.WriteLine("customer : " + servedCustomer);
+//        Console.WriteLine("customer : " + servedCustomer);
 
-        Console.WriteLine("remaining customers:");
+//        Console.WriteLine("remaining customers:");
 
-        foreach (string customer in customers)
-        {
-            Console.WriteLine(customer);
-        }
-    }
-}
+//        foreach (string customer in customers)
+//        {
+//            Console.WriteLine(customer);
+//        }
+//    }
+//}
+
+////Q5:grade range 
+//using System;
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        int[] grades = new int[5];
+//        int sum = 0;
+
+//        for (int i = 0; i < grades.Length; i++)
+//        {
+//            Console.Write("Enter grade " + (i + 1) + ": ");
+//            grades[i] = Convert.ToInt32(Console.ReadLine());
+//        }
+
+//        Array.Sort(grades);
+
+//        for (int i = 0; i < grades.Length; i++)
+//        {
+//            sum += grades[i];
+//        }
+
+//        double average = (double)sum / grades.Length;
+
+//        Console.WriteLine("Low Grade: " + grades[0]);
+//        Console.WriteLine("High Grade: " + grades[grades.Length - 1]);
+//        Console.WriteLine("Average : " + average);
+//    }
+//}

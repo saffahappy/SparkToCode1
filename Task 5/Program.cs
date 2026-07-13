@@ -142,7 +142,51 @@
 //    }
 //}
 
-//Q6:shopping list
+////Q6:shopping list
+//using System;
+//using System.Collections.Generic;
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        List<string> shoppingList = new List<string>();
+
+//        while (true)
+//        {
+//            Console.Write("enter an item: ");
+//            string item = Console.ReadLine();
+
+//            if (item.ToLower() == "done")
+//            {
+//                break;
+//            }
+
+//            shoppingList.Add(item);
+//        }
+
+//        Console.WriteLine("\nShopping List:");
+
+//        foreach (string item in shoppingList)
+//        {
+//            Console.WriteLine(item);
+//        }
+
+//        Console.Write("enter an item : ");
+//        string removeItem = Console.ReadLine();
+
+//        shoppingList.Remove(removeItem);
+
+//        Console.WriteLine("shopping List:");
+
+//        foreach (string item in shoppingList)
+//        {
+//            Console.WriteLine(item);
+//        }
+//    }
+//}
+
+//Q7:scoare poduim task
 using System;
 using System.Collections.Generic;
 
@@ -150,38 +194,22 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        List<string> shoppingList = new List<string>();
+        List<int> scores = new List<int>();
 
-        while (true)
+        for (int i = 0; i < 5; i++)
         {
-            Console.Write("enter an item: ");
-            string item = Console.ReadLine();
+            Console.Write("enter your score " + (i + 1) + ": ");
+            int score = Convert.ToInt32(Console.ReadLine());
 
-            if (item.ToLower() == "done")
-            {
-                break;
-            }
-
-            shoppingList.Add(item);
+            scores.Add(score);
         }
 
-        Console.WriteLine("\nShopping List:");
+        scores.Sort();
+        scores.Reverse();
 
-        foreach (string item in shoppingList)
-        {
-            Console.WriteLine(item);
-        }
-
-        Console.Write("enter an item : ");
-        string removeItem = Console.ReadLine();
-
-        shoppingList.Remove(removeItem);
-
-        Console.WriteLine("shopping List:");
-
-        foreach (string item in shoppingList)
-        {
-            Console.WriteLine(item);
-        }
+        Console.WriteLine("the top  Scores");
+        Console.WriteLine("first Place: " + scores[0]);
+        Console.WriteLine("seond  Place: " + scores[1]);
+        Console.WriteLine("third Place: " + scores[2]);
     }
 }

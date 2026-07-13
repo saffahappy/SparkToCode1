@@ -21,3 +21,30 @@
 //        }
 //    }
 //}
+
+////Q2:Dynamic to do list 
+//using System;
+//using System.Collections.Generic;
+
+//internal class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        List<string> tasks = new List<string>();
+
+//        for (int i = 0; i < 5; i++)
+//        {
+//            Console.Write("Enter task " + (i + 1));
+//            string task = Console.ReadLine();
+
+//            tasks.Add(task);
+//        }
+
+//        Console.WriteLine("list:");
+
+//        foreach (string task in tasks)
+//        {
+//            Console.WriteLine("- " + task);
+//        }
+//    }
+//}

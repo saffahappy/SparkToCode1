@@ -73,7 +73,7 @@
                         break;
 
                     default:
-                        Console.WriteLine("invalid option");
+                        Console.WriteLine("nvalid option");
                         break;
                 }
             }

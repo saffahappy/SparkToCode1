@@ -62,3 +62,58 @@
 //        }
 //    }
 //}
+
+namespace task1_oop
+{
+    internal class Student
+    {
+        public int Grade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+
+        private string email;
+        int age;
+
+        // Case 19
+        private int pin;
+
+        public int SecurityPIN
+        {
+            set
+            {
+                if (value >= 1000 && value <= 9999)
+                {
+                    pin = value;
+                }
+                else
+                {
+                    Console.WriteLine("pin must be 4 digits.");
+                }
+            }
+        }
+
+        // Case 17
+        private static int studentCount = 0;
+
+        public Student()
+        {
+            studentCount++;
+        }
+
+        public static int GetStudentCount()
+        {
+            return studentCount;
+        }
+
+        public void Register(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine(" email sent.");
+        }
+    }
+}

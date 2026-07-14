@@ -197,3 +197,125 @@
 //    Console.WriteLine("deposit Successful.");
 //    Console.WriteLine("balance: " + balances[index]);
 //}
+static void WithdrawMoney()
+{
+    Console.Write("enter account number: ");
+    string accountNumber = Console.ReadLine();
+
+    int index = accountNumbers.IndexOf(accountNumber);
+
+    if (index == -1)
+    {
+        Console.WriteLine("account not found.");
+        return;
+    }
+
+    Console.Write("enter withdrawal amount: ");
+
+    double amount;
+
+    try
+    {
+        amount = double.Parse(Console.ReadLine());
+    }
+    catch (Exception)
+    {
+        Console.WriteLine("invalid amount.");
+        return;
+    }
+
+    if (amount <= 0)
+    {
+        Console.WriteLine("withdrawal amount must be greater than zero");
+        return;
+    }
+
+    if (amount > balances[index])
+    {
+        Console.WriteLine("balance not enough");
+        return;
+    }
+
+    balances[index] -= amount;
+
+    Console.WriteLine("Withdrawal Successful.");
+    Console.WriteLine(" Balance: " + balances[index]);
+}
+
+static void ShowBalance()
+{
+    Console.Write("Enter Account Number: ");
+    string accountNumber = Console.ReadLine();
+
+    int index = accountNumbers.IndexOf(accountNumber);
+
+    if (index == -1)
+    {
+        Console.WriteLine("Account not found.");
+        return;
+    }
+
+    Console.WriteLine("account details");
+    Console.WriteLine("----------------------");
+    Console.WriteLine("customer name : " + customerNames[index]);
+    Console.WriteLine("account number: " + accountNumbers[index]);
+    Console.WriteLine("your balance is : " + balances[index]);
+}
+
+static void TransferAmount()
+{
+    Console.Write("enter sender number:");
+    string sender = Console.ReadLine();
+
+    int senderIndex = accountNumbers.IndexOf(sender);
+
+    if (senderIndex == -1)
+    {
+        Console.WriteLine("sender account not found.");
+        return;
+    }
+
+    Console.Write("Enter  account number: ");
+    string receiver = Console.ReadLine();
+
+    int receiverIndex = accountNumbers.IndexOf(receiver);
+
+    if (receiverIndex == -1)
+    {
+        Console.WriteLine(" account not found.");
+        return;
+    }
+
+    Console.Write("enter amount to transfer: ");
+
+    double amount;
+
+    try
+    {
+        amount = double.Parse(Console.ReadLine());
+    }
+    catch (Exception)
+    {
+        Console.WriteLine("Invalid amount.");
+        return;
+    }
+
+    if (amount <= 0)
+    {
+        Console.WriteLine("transfer amount must be greater than zero.");
+        return;
+    }
+
+    if (amount > balances[senderIndex])
+    {
+        Console.WriteLine("not enough balance.");
+        return;
+    }
+
+    balances[senderIndex] -= amount;
+    balances[receiverIndex] += amount;
+
+    Console.WriteLine("transfer Successful!");
+    Console.WriteLine(customerNames[senderIndex] + " Balance: " + balances[senderIndex]);
+    Console.WriteLine(customerNames[receiverIndex] + " Balance: " + balances[receiverIndex]);
+}

@@ -2,8 +2,7 @@
 //{
 //    internal class Program
 //    {
-//        // Shared Data Storage
-//        static List<string> customerNames = new List<string>();
+//       static List<string> customerNames = new List<string>();
 //        static List<string> accountNumbers = new List<string>();
 //        static List<double> balances = new List<double>();
 
@@ -320,41 +319,41 @@
 //    Console.WriteLine(customerNames[receiverIndex] + " Balance: " + balances[receiverIndex]);
 //}
 
-static void ListAllAccounts()
-{
-    if (customerNames.Count == 0)
-    {
-        Console.WriteLine("No accounts are found");
-        return;
-    }
+//static void ListAllAccounts()
+//{
+//    if (customerNames.Count == 0)
+//    {
+//        Console.WriteLine("No accounts are found");
+//        return;
+//    }
 
-    Console.WriteLine("all accounts");
+//    Console.WriteLine("all accounts");
 
-    for (int i = 0; i < customerNames.Count; i++)
-    {
-        Console.WriteLine("-------------------------");
-        Console.WriteLine("customer name : " + customerNames[i]);
-        Console.WriteLine("account number: " + accountNumbers[i]);
-        Console.WriteLine("your current balance is : " + balances[i]);
-    }
-}
+//    for (int i = 0; i < customerNames.Count; i++)
+//    {
+//        Console.WriteLine("-------------------------");
+//        Console.WriteLine("customer name : " + customerNames[i]);
+//        Console.WriteLine("account number: " + accountNumbers[i]);
+//        Console.WriteLine("your current balance is : " + balances[i]);
+//    }
+//}
 
-static void CloseAccount()
-{
-    Console.Write("enter the account number: ");
-    string accountNumber = Console.ReadLine();
+//static void CloseAccount()
+//{
+//    Console.Write("enter the account number: ");
+//    string accountNumber = Console.ReadLine();
 
-    int index = accountNumbers.IndexOf(accountNumber);
+//    int index = accountNumbers.IndexOf(accountNumber);
 
-    if (index == -1)
-    {
-        Console.WriteLine("Account not found.");
-        return;
-    }
+//    if (index == -1)
+//    {
+//        Console.WriteLine("Account not found.");
+//        return;
+//    }
 
-    customerNames.RemoveAt(index);
-    accountNumbers.RemoveAt(index);
-    balances.RemoveAt(index);
+//    customerNames.RemoveAt(index);
+//    accountNumbers.RemoveAt(index);
+//    balances.RemoveAt(index);
 
-    Console.WriteLine("account closed .");
-}
+//    Console.WriteLine("account closed .");
+//}

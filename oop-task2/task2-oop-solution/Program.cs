@@ -27,46 +27,48 @@
 //    }
 //}
 
+//namespace task2_oop_solution
+//{
+//    internal class Guest
+//    {
+//        public string GuestId { get; set; }
+//        public string GuestName { get; set; }
+//        public string RoomNumber { get; set; }
+//        public string CheckInDate { get; set; }
+//        public int TotalNights { get; set; }
+
+//        public double PricePerNight { get; set; }
+
+//        public Guest(string guestId,
+//                     string guestName,
+//                     string roomNumber,
+//                     string checkInDate,
+//                     int totalNights)
+//        {
+//            GuestId = guestId;
+//            GuestName = guestName;
+//            RoomNumber = roomNumber;
+//            CheckInDate = checkInDate;
+//            TotalNights = totalNights;
+//        }
+
+//        public void DisplayGuest()
+//        {
+//            Console.WriteLine("guest details");
+//            Console.WriteLine($"guest ID: {GuestId}");
+//            Console.WriteLine($"Guest name: {GuestName}");
+//            Console.WriteLine($"room number: {RoomNumber}");
+//            Console.WriteLine($"check the date: {CheckInDate}");
+//            Console.WriteLine($"Night number: {TotalNights}");
+//        }
+
+//        public double CalculateTotalCost()
+//        {
+//            return PricePerNight * TotalNights;
+//        }
+//    }
+//}
 namespace task2_oop_solution
-{
-    internal class Guest
-    {
-        public string GuestId { get; set; }
-        public string GuestName { get; set; }
-        public string RoomNumber { get; set; }
-        public string CheckInDate { get; set; }
-        public int TotalNights { get; set; }
 
-        public double PricePerNight { get; set; }
-
-        public Guest(string guestId,
-                     string guestName,
-                     string roomNumber,
-                     string checkInDate,
-                     int totalNights)
-        {
-            GuestId = guestId;
-            GuestName = guestName;
-            RoomNumber = roomNumber;
-            CheckInDate = checkInDate;
-            TotalNights = totalNights;
-        }
-
-        public void DisplayGuest()
-        {
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine($"Guest ID    : {GuestId}");
-            Console.WriteLine($"Guest Name  : {GuestName}");
-            Console.WriteLine($"Room Number : {RoomNumber}");
-            Console.WriteLine($"Check In    : {CheckInDate}");
-            Console.WriteLine($"Nights      : {TotalNights}");
-        }
-
-        public double CalculateTotalCost()
-        {
-            return PricePerNight * TotalNights;
-        }
-    }
-}
 
 

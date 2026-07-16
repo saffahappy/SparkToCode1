@@ -293,7 +293,146 @@
 //            break;
 //    }
 //}
-//Q7
-//Q8
-//Q9
-//Q10
+//Q7:guest statisitics
+//static void GuestStatistics()
+//{
+//    Console.WriteLine($"number of guests: {guests.Count()}");
+
+//    Console.WriteLine($"guests With booking: {guests.Count(g => g.RoomNumber != "Not Assigned")}");
+
+//    Console.WriteLine($"total rooms: {rooms.Count()}");
+
+//    Console.WriteLine($"booked rooms: {rooms.Count(r => !r.IsAvailable)}");
+
+//    var bookedGuests = guests.Where(g => g.RoomNumber != "Not Assigned");
+
+//    if (!bookedGuests.Any())
+//    {
+//        Console.WriteLine("No bookings available");
+//        return;
+//    }
+
+//    Console.WriteLine($"average night price: {bookedGuests.Average(g => g.TotalNights):F2}");
+
+//    Console.WriteLine("VIP Guests");
+
+//    foreach (var guest in bookedGuests
+//             .OrderByDescending(g => g.CalculateTotalCost())
+//             .Take(3))
+//    {
+//        Console.WriteLine($"{guest.GuestName} - {guest.CalculateTotalCost():F2}");
+//    }
+
+//    Console.WriteLine("booking summary");
+
+//    foreach (var item in bookedGuests.Select(g =>
+//        $"{g.GuestName} - room {g.RoomNumber} - {g.TotalNights} night -  {g.CalculateTotalCost():F2}"))
+//    {
+//        Console.WriteLine(item);
+//    }
+//}
+//Q8:room price:updated room price 
+//static void UpdateRoomPrice()
+//{
+//    Console.Write("Room Number: ");
+//    int roomNumber = Convert.ToInt32(Console.ReadLine());
+
+//    Room room = rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
+
+//    if (room == null)
+//    {
+//        Console.WriteLine("room not found.");
+//        return;
+//    }
+
+//    Console.Write("new price: ");
+
+//    if (!double.TryParse(Console.ReadLine(), out double newPrice) || newPrice <= 0)
+//    {
+//        Console.WriteLine("Invalid Price.");
+//        return;
+//    }
+
+//    double oldPrice = room.PricePerNight;
+
+//    room.PricePerNight = newPrice;
+
+//    Console.WriteLine($"old price: {oldPrice}");
+
+//    Console.WriteLine($"new price: {room.PricePerNight}");
+//}
+
+//Q9:guest lookkup
+//static void GuestLookup()
+//{
+//    Console.Write("enter the name: ");
+
+//    string name = Console.ReadLine();
+
+//    var result = guests.Where(g =>
+//        g.GuestName.Contains(name,
+//        StringComparison.OrdinalIgnoreCase));
+
+//    if (!result.Any())
+//    {
+//        Console.WriteLine("no guests are matched.");
+//        return;
+//    }
+
+//    Console.WriteLine($"found {result.Count()} guest");
+
+//    foreach (var guest in result)
+//    {
+//        Console.WriteLine($"{guest.GuestId} - {guest.GuestName} - room {guest.RoomNumber}");
+//    }
+//}
+//Q10:room type report
+//static void RoomReport()
+//{
+//    string[] roomTypes = { "single", "double", "suite" };
+
+//    foreach (string type in roomTypes)
+//    {
+//        int count = rooms.Count(r => r.RoomType == type);
+
+//        Console.WriteLine($"{type}");
+
+//        Console.WriteLine($"count: {count}");
+
+//        if (count > 0)
+//            Console.WriteLine($"the average price is : {rooms.Where(r => r.RoomType == type).Average(r => r.PricePerNight):F2}");
+//        else
+//            Console.WriteLine("average price:);
+//    }
+
+//    Console.WriteLine($"totale price is : {rooms.Average(r => r.PricePerNight):F2}");
+//}
+
+//Q11:checkout guest 
+//static void Checkout()
+//{
+//    Console.Write("enter ID: ");
+//    string guestId = Console.ReadLine();
+
+//    Guest guest = guests.FirstOrDefault(g => g.GuestId == guestId);
+
+//    if (guest == null)
+//    {
+//        Console.WriteLine("guest not found.");
+//        return;
+//    }
+
+//    if (guest.RoomNumber != "not assigned")
+//    {
+//        Room room = rooms.FirstOrDefault(r => r.RoomNumber.ToString() == guest.RoomNumber);
+
+//        if (room != null)
+//        {
+//            room.IsAvailable = true;
+//        }
+//    }
+
+//    guests.Remove(guest);
+
+//    Console.WriteLine("guest checked out");
+//}

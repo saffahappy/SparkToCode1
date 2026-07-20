@@ -5,6 +5,7 @@
   <Project Path="CSharp Session1/CSharp Session1.csproj" />
   <Project Path="project_solution/project_solution.csproj" Id="98c5ae5d-3a00-4d69-bbff-2543c20afffd" />
   <Project Path="Task 5/Task 5.csproj" />
+  <Project Path="task1-oop/task1-oop.csproj" Id="ccb25804-721b-4d37-8b04-2b50fe61a75e" />
   <Project Path="Task1/Task1/Task1.csproj" />
   <Project Path="task2/Task2solution/Task2solution.csproj" />
   <Project Path="Task3/Task3-solution/Task3-solution.csproj" />

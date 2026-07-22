@@ -1,0 +1,187 @@
+IF DB_ID('CompanyDB') IS NULL
+BEGIN
+    CREATE DATABASE CompanyDB;
+END;
+GO
+
+USE CompanyDB;
+GO
+
+IF OBJECT_ID('dbo.DEPENDENT', 'U') IS NOT NULL DROP TABLE dbo.DEPENDENT;
+IF OBJECT_ID('dbo.WORKS_ON', 'U') IS NOT NULL DROP TABLE dbo.WORKS_ON;
+IF OBJECT_ID('dbo.PROJECT', 'U') IS NOT NULL DROP TABLE dbo.PROJECT;
+IF OBJECT_ID('dbo.DEPT_LOCATIONS', 'U') IS NOT NULL DROP TABLE dbo.DEPT_LOCATIONS;
+
+IF OBJECT_ID('dbo.EMPLOYEE', 'U') IS NOT NULL
+BEGIN
+    IF EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_EMPLOYEE_DEPARTMENT')
+        ALTER TABLE dbo.EMPLOYEE DROP CONSTRAINT FK_EMPLOYEE_DEPARTMENT;
+END;
+
+IF OBJECT_ID('dbo.DEPARTMENT', 'U') IS NOT NULL
+BEGIN
+    IF EXISTS (SELECT 1 FROM sys.foreign_keys WHERE name = 'FK_DEPARTMENT_MANAGER')
+        ALTER TABLE dbo.DEPARTMENT DROP CONSTRAINT FK_DEPARTMENT_MANAGER;
+END;
+
+IF OBJECT_ID('dbo.EMPLOYEE', 'U') IS NOT NULL DROP TABLE dbo.EMPLOYEE;
+IF OBJECT_ID('dbo.DEPARTMENT', 'U') IS NOT NULL DROP TABLE dbo.DEPARTMENT;
+GO
+
+CREATE TABLE dbo.DEPARTMENT
+(
+    Dname          VARCHAR(50) NOT NULL,
+    Dnumber        INT NOT NULL,
+    Mgr_ssn        CHAR(9) NULL,
+    Mgr_start_date DATE NULL,
+    CONSTRAINT PK_DEPARTMENT PRIMARY KEY (Dnumber),
+    CONSTRAINT UQ_DEPARTMENT_Dname UNIQUE (Dname)
+);
+GO
+
+CREATE TABLE dbo.EMPLOYEE
+(
+    Fname      VARCHAR(30) NOT NULL,
+    Minit      CHAR(1) NULL,
+    Lname      VARCHAR(30) NOT NULL,
+    Ssn        CHAR(9) NOT NULL,
+    Bdate      DATE NULL,
+    Address    VARCHAR(150) NULL,
+    Sex        CHAR(1) NULL,
+    Salary     DECIMAL(10,2) NULL,
+    Super_ssn  CHAR(9) NULL,
+    Dno        INT NOT NULL,
+    CONSTRAINT PK_EMPLOYEE PRIMARY KEY (Ssn),
+    CONSTRAINT CK_EMPLOYEE_Sex CHECK (Sex IN ('M','F') OR Sex IS NULL),
+    CONSTRAINT CK_EMPLOYEE_Salary CHECK (Salary >= 0 OR Salary IS NULL),
+    CONSTRAINT FK_EMPLOYEE_SUPERVISOR FOREIGN KEY (Super_ssn) REFERENCES dbo.EMPLOYEE(Ssn),
+    CONSTRAINT FK_EMPLOYEE_DEPARTMENT FOREIGN KEY (Dno) REFERENCES dbo.DEPARTMENT(Dnumber)
+);
+GO
+
+ALTER TABLE dbo.DEPARTMENT
+ADD CONSTRAINT FK_DEPARTMENT_MANAGER
+FOREIGN KEY (Mgr_ssn) REFERENCES dbo.EMPLOYEE(Ssn);
+GO
+
+CREATE TABLE dbo.DEPT_LOCATIONS
+(
+    Dnumber   INT NOT NULL,
+    Dlocation VARCHAR(100) NOT NULL,
+    CONSTRAINT PK_DEPT_LOCATIONS PRIMARY KEY (Dnumber, Dlocation),
+    CONSTRAINT FK_DEPT_LOCATIONS_DEPARTMENT FOREIGN KEY (Dnumber) REFERENCES dbo.DEPARTMENT(Dnumber)
+);
+GO
+
+CREATE TABLE dbo.PROJECT
+(
+    Pname     VARCHAR(100) NOT NULL,
+    Pnumber   INT NOT NULL,
+    Plocation VARCHAR(100) NULL,
+    Dnum      INT NOT NULL,
+    CONSTRAINT PK_PROJECT PRIMARY KEY (Pnumber),
+    CONSTRAINT UQ_PROJECT_Pname UNIQUE (Pname),
+    CONSTRAINT FK_PROJECT_DEPARTMENT FOREIGN KEY (Dnum) REFERENCES dbo.DEPARTMENT(Dnumber)
+);
+GO
+
+CREATE TABLE dbo.WORKS_ON
+(
+    Essn  CHAR(9) NOT NULL,
+    Pno   INT NOT NULL,
+    Hours DECIMAL(5,2) NULL,
+    CONSTRAINT PK_WORKS_ON PRIMARY KEY (Essn, Pno),
+    CONSTRAINT CK_WORKS_ON_Hours CHECK (Hours >= 0 OR Hours IS NULL),
+    CONSTRAINT FK_WORKS_ON_EMPLOYEE FOREIGN KEY (Essn) REFERENCES dbo.EMPLOYEE(Ssn),
+    CONSTRAINT FK_WORKS_ON_PROJECT FOREIGN KEY (Pno) REFERENCES dbo.PROJECT(Pnumber)
+);
+GO
+
+CREATE TABLE dbo.DEPENDENT
+(
+    Essn           CHAR(9) NOT NULL,
+    Dependent_name VARCHAR(50) NOT NULL,
+    Sex            CHAR(1) NULL,
+    Bdate          DATE NULL,
+    Relationship   VARCHAR(30) NULL,
+    CONSTRAINT PK_DEPENDENT PRIMARY KEY (Essn, Dependent_name),
+    CONSTRAINT CK_DEPENDENT_Sex CHECK (Sex IN ('M','F') OR Sex IS NULL),
+    CONSTRAINT FK_DEPENDENT_EMPLOYEE FOREIGN KEY (Essn) REFERENCES dbo.EMPLOYEE(Ssn)
+);
+GO
+
+
+INSERT INTO dbo.DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date)
+VALUES ('Research',1,NULL,NULL), ('Administration',2,NULL,NULL), ('IT',3,NULL,NULL);
+GO
+
+INSERT INTO dbo.EMPLOYEE
+(Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_ssn, Dno)
+VALUES
+('Safa','A','Ali','111111111','1990-05-10','Muscat','F',1200.00,NULL,1),
+('Sara','M','Khalid','222222222','1995-08-14','Seeb','F',1000.00,'111111111',1),
+('Omar','S','Hassan','333333333','1988-03-20','Bawshar','M',1400.00,NULL,2),
+('Maha','R','Salim','444444444','1997-11-02','Al Khoudh','F',1100.00,'333333333',2),
+('Nasser','K','Said','555555555','1992-01-18','Muttrah','M',1500.00,NULL,3);
+GO
+
+UPDATE dbo.DEPARTMENT SET Mgr_ssn='111111111', Mgr_start_date='2022-01-01' WHERE Dnumber=1;
+UPDATE dbo.DEPARTMENT SET Mgr_ssn='333333333', Mgr_start_date='2021-06-15' WHERE Dnumber=2;
+UPDATE dbo.DEPARTMENT SET Mgr_ssn='555555555', Mgr_start_date='2023-02-01' WHERE Dnumber=3;
+GO
+
+INSERT INTO dbo.DEPT_LOCATIONS (Dnumber, Dlocation)
+VALUES (1,'Muscat'),(1,'Seeb'),(2,'Bawshar'),(3,'Muscat');
+GO
+
+INSERT INTO dbo.PROJECT (Pname, Pnumber, Plocation, Dnum)
+VALUES ('AI System',101,'Muscat',1), ('HR Portal',102,'Bawshar',2), ('Cybersecurity Platform',103,'Muscat',3);
+GO
+
+INSERT INTO dbo.WORKS_ON (Essn, Pno, Hours)
+VALUES ('111111111',101,20),('222222222',101,15),('333333333',102,18),('444444444',102,12),('555555555',103,25);
+GO
+
+INSERT INTO dbo.DEPENDENT (Essn, Dependent_name, Sex, Bdate, Relationship)
+VALUES ('111111111','Noor','F','2015-04-12','Daughter'), ('333333333','Ali','M','2012-09-20','Son');
+GO
+
+
+INSERT INTO dbo.EMPLOYEE
+(Fname, Minit, Lname, Ssn, Bdate, Address, Sex, Salary, Super_ssn, Dno)
+VALUES ('Layla','H','Amri','666666666','1998-07-25','Muscat','F',950.00,'555555555',3);
+GO
+
+
+SELECT * FROM dbo.EMPLOYEE;
+GO
+
+SELECT E.Ssn, E.Fname, E.Lname, E.Salary, D.Dname
+FROM dbo.EMPLOYEE AS E
+JOIN dbo.DEPARTMENT AS D ON E.Dno = D.Dnumber;
+GO
+
+SELECT E.Fname, E.Lname, P.Pname, W.Hours
+FROM dbo.WORKS_ON AS W
+JOIN dbo.EMPLOYEE AS E ON W.Essn = E.Ssn
+JOIN dbo.PROJECT AS P ON W.Pno = P.Pnumber;
+GO
+
+
+UPDATE dbo.EMPLOYEE
+SET Salary = Salary + 100
+WHERE Ssn = '222222222';
+GO
+
+SELECT Ssn, Fname, Lname, Salary
+FROM dbo.EMPLOYEE
+WHERE Ssn = '222222222';
+GO
+
+
+DELETE FROM dbo.EMPLOYEE
+WHERE Ssn = '666666666';
+GO
+
+SELECT * FROM dbo.EMPLOYEE;
+GO
